@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Header, Subtitle } from "../../../font-library";
+import "./styles.css";
 
-const Title = () => {
-  const [texts, setTexts] = useState([
-    "hi, i'm tia!",
-    "i'm a software engineer with two years of experience",
-  ]);
+const texts = [
+  "hi, i'm tia!",
+  "i'm a software engineer with two years of experience developing full stack applications",
+  "welcome to my portfolio",
+];
+
+const TypingEffect = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  const [displayedText, setDisplayedText] = useState(texts[0]);
+  const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
     const typingEffect = () => {
@@ -22,24 +26,24 @@ const Title = () => {
             setCurrentTextIndex((prevIndex) =>
               prevIndex === texts.length - 1 ? 0 : prevIndex + 1
             );
-          }, 5);
+          }, 2000); 
         }
       }, 100);
-
       return () => clearInterval(interval);
     };
 
     typingEffect();
-  }, [currentTextIndex, texts]);
+
+  }, [currentTextIndex]);
 
   return (
     <section id="title">
-      <div className="container">
-        <h2>Tia Bhattacharya</h2>
-        <p>{displayedText}</p>
+      <div className="title-container">
+        <Header>Tia Bhattacharya</Header>
+        <Subtitle>{displayedText}</Subtitle>
       </div>
     </section>
   );
 };
 
-export default Title;
+export default TypingEffect;
