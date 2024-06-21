@@ -1,14 +1,14 @@
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Title from './components/page-sections/title';
+import { BrowserRouter } from 'react-router-dom';
+import Title from './components/title';
+import Resume from './components/resume';
 
 function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <Routes>
-          <Route path="/" element={<Title />} />
-        </Routes>
+        <Title />
+        <Resume />
       </div>
     </BrowserRouter>
   );
